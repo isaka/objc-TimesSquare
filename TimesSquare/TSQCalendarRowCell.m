@@ -38,7 +38,12 @@
     if (!self) {
         return nil;
     }
-    
+    UIImage *img = [UIImage imageNamed:@"selectedCellBackground.png"];
+    _selectedBackgroundImage = [img resizableImageWithCapInsets:UIEdgeInsetsFromString(@"0,6,0,12") resizingMode:UIImageResizingModeStretch];
+    img = [UIImage imageNamed:@"calTodayCellBackground.png"];
+    _todayBackgroundImage = [img resizableImageWithCapInsets:UIEdgeInsetsFromString(@"0,6,0,12") resizingMode:UIImageResizingModeStretch];
+    img = [UIImage imageNamed:@"darkerViewBackground.png"];
+    _backgroundImage = [img resizableImageWithCapInsets:UIEdgeInsetsFromString(@"0,6,0,12") resizingMode:UIImageResizingModeStretch];
     return self;
 }
 
@@ -89,9 +94,9 @@
     [self configureButton:self.todayButton];
     [self.todayButton addTarget:self action:@selector(todayButtonPressed:) forControlEvents:UIControlEventTouchDown];
     
-    [self.todayButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.todayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.todayButton setBackgroundImage:[self todayBackgroundImage] forState:UIControlStateNormal];
-    [self.todayButton setTitleShadowColor:[UIColor colorWithWhite:0.0f alpha:0.75f] forState:UIControlStateNormal];
+    [self.todayButton setTitleShadowColor:[UIColor colorWithRed:0.73f green:0.34f blue:0.16f alpha:0.75f] forState:UIControlStateNormal];
 
     self.todayButton.titleLabel.shadowOffset = CGSizeMake(0.0f, -1.0f / [UIScreen mainScreen].scale);
 }
@@ -105,9 +110,9 @@
     [self.selectedButton setAccessibilityTraits:UIAccessibilityTraitSelected|self.selectedButton.accessibilityTraits];
     
     self.selectedButton.enabled = NO;
-    [self.selectedButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.selectedButton setTitleColor:[UIColor colorWithRed:0.73f green:0.34f blue:0.16f alpha:0.75f] forState:UIControlStateNormal];
     [self.selectedButton setBackgroundImage:[self selectedBackgroundImage] forState:UIControlStateNormal];
-    [self.selectedButton setTitleShadowColor:[UIColor colorWithWhite:0.0f alpha:0.75f] forState:UIControlStateNormal];
+    [self.selectedButton setTitleShadowColor:[UIColor colorWithRed:0.73f green:0.34f blue:0.16f alpha:0.75f] forState:UIControlStateNormal];
     
     self.selectedButton.titleLabel.shadowOffset = CGSizeMake(0.0f, -1.0f / [UIScreen mainScreen].scale);
     self.indexOfSelectedButton = -1;
